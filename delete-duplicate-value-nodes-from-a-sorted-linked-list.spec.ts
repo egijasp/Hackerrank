@@ -1,5 +1,10 @@
-import { SinglyLinkedListNode } from "./insert-a-node-at-a-specific-position-in-a-linked-list";
+import { removeDuplicates } from "./delete-duplicate-value-nodes-from-a-sorted-linked-list";
+import { listAsArray, makeList } from "./helper-functions";
 
-export function removeDuplicates(
-  list: SinglyLinkedListNode | null
-): SinglyLinkedListNode {}
+describe("removeDuplicate", () => {
+  it("remove dublicate", () => {
+    let list = makeList([1, 2, 2, 3, 4]);
+    list = removeDuplicates(list);
+    expect(listAsArray(list)).toEqual([1, 2, 3, 4]);
+  });
+});
