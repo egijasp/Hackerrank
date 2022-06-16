@@ -6,4 +6,9 @@ describe("sockMerchant", () => {
 
     expect(result).toBe(3);
   });
+  it("test2", () => {
+    const result = sockMerchant(10, [1, 1, 3, 1, 2, 1, 3, 3, 3, 3]);
+
+    expect(result).toBe(4);
+  });
 });
