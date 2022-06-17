@@ -1,17 +1,18 @@
 export function countingValleys(path: string): number {
-  let count = 0;
-  let valleys = 0;
-
-  path.split("").forEach((x) => {
-    if (x === "U") {
-      count += 1;
-      if (count === 0) {
-        valleys += 1;
+  const result = path.split("").reduce(
+    (acc, step) => {
+      if (step === "U") {
+        acc.level++;
+        if (acc.level === 0) {
+          acc.valleys++;
+        }
+        return acc;
       }
-    } else {
-      count -= 1;
-    }
-  });
+      acc.level--;
+      return acc;
+    },
+    { level: 0, valleys: 0 }
+  );
 
-  return valleys;
+  return result.valleys;
 }
