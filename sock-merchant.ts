@@ -1,12 +1,18 @@
-export function sockMerchant(n: number, ar: number[]): number {
-  // Write your code here
-  const filteredArr = [...new Set(ar)];
+interface Color {
+  [key: number]: number;
+}
 
-  let count = 0;
+export function sockMerchant(ar: number[]): number {
+  const colorsCount = ar.reduce((allColors: Color, color) => {
+    if (allColors[color]) {
+      allColors[color]++;
+      return allColors;
+    }
+    allColors[color] = 1;
+    return allColors;
+  }, {});
 
-  filteredArr.forEach((num) => {
-    count += Math.floor(ar.filter((item) => item === num).length / 2);
-  });
-
-  return count;
+  return Object.values(colorsCount).reduce((count, value) => {
+    return count + Math.floor(value / 2);
+  }, 0);
 }
