@@ -4,8 +4,8 @@ export function getMoneySpent(
   drives: number[]
 ): number {
   let spentMoney = -1;
-  for (let keyboard of keyboards) {
-    for (let drive of drives) {
+  for (const keyboard of keyboards) {
+    for (const drive of drives) {
       const sum = keyboard + drive;
       sum <= budget ? (spentMoney = sum) : spentMoney;
     }
