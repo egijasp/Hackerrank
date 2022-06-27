@@ -1,0 +1,12 @@
+name: Check
+on: [push]
+jobs:
+  Check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+      - name: Node
+        uses: actions/setup-node@v3
+      - name: Dependencies
+        run: npm ci
