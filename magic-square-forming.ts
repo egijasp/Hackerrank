@@ -12,7 +12,7 @@ export function formingMagicSquare(s: number[][]): number {
 
   return patterns.reduce((lowest, pattern) => {
     const cost = pattern
-      .map((el) => Number(el))
+      .map((el) => el)
       .reduce((sum, num, index) => {
         const row = Math.trunc(index / 3);
         const col = index % 3;
