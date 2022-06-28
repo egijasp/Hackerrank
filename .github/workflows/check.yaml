@@ -13,5 +13,7 @@ jobs:
           cache: npm
       - name: Dependencies
         run: npm ci
+      - name: Lint
+        run: npx lint
       - name: Test
         run: npx jest

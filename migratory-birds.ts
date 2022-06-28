@@ -1,19 +1,19 @@
 interface Count {
-  [key: number]: number;
+  [key: number]: number
 }
 
 export function migratoryBirds(arr: number[]): number {
-  const count: Count = {};
+  const count: Count = {}
 
   arr.forEach((item) => {
     if (count[item]) {
-      count[item] += 1;
-      return;
+      count[item] += 1
+      return
     }
-    count[item] = 1;
-  });
+    count[item] = 1
+  })
 
-  const most = Math.max(...Object.values(count));
+  const most = Math.max(...Object.values(count))
 
-  return +Object.keys(count).find((x) => count[+x] === most)!;
+  return Number(Object.keys(count).find((x) => count[+x] === most)) ?? 0
 }

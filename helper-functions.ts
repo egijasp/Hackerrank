@@ -1,43 +1,43 @@
-import { SinglyLinkedListNode } from "./insert-a-node-at-a-specific-position-in-a-linked-list";
+import { SinglyLinkedListNode } from './insert-a-node-at-a-specific-position-in-a-linked-list'
 
-export function makeList(array: number[]): SinglyLinkedListNode | null {
+export function makeList(array: number[]): SinglyLinkedListNode | undefined {
   if (array.length === 0) {
-    return null;
+    return undefined
   }
 
-  let head: SinglyLinkedListNode | null = null;
-  let tail: SinglyLinkedListNode | null = null;
+  let head: SinglyLinkedListNode | undefined
+  let tail: SinglyLinkedListNode | undefined
 
   for (let i = 0; i < array.length; i++) {
-    const node: SinglyLinkedListNode = { data: array[i], next: null };
+    const node: SinglyLinkedListNode = { data: array[i] }
 
-    if (head === null) {
-      head = node;
+    if (head === undefined) {
+      head = node
     }
 
-    if (tail !== null) {
-      tail.next = node;
+    if (tail !== undefined) {
+      tail.next = node
     }
 
-    tail = node;
+    tail = node
   }
 
-  return head;
+  return head
 }
 
-export function listAsArray(head: SinglyLinkedListNode | null): number[] {
-  if (head === null) {
-    return [];
+export function listAsArray(head: SinglyLinkedListNode | undefined): number[] {
+  if (head === undefined) {
+    return []
   }
 
-  let current: SinglyLinkedListNode | null = head;
+  let current: SinglyLinkedListNode | undefined = head
 
-  const newArray = [];
+  const newArray = []
 
   do {
-    newArray.push(current!.data);
-    current = current!.next;
-  } while (current !== null);
+    newArray.push(current?.data)
+    current = current?.next
+  } while (current !== undefined)
 
-  return newArray;
+  return newArray
 }
