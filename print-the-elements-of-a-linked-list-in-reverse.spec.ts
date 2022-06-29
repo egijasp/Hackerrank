@@ -5,7 +5,7 @@ describe("reversePrint", () => {
   it("print list reverse", () => {
     console.log = jest.fn();
 
-    let list = makeList([16, 12, 4, 2, 5]);
+    const list = makeList([16, 12, 4, 2, 5]);
     reversePrint(list);
     const mock = (<jest.Mock>console.log).mock;
 

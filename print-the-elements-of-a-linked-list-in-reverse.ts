@@ -1,9 +1,9 @@
-import { SinglyLinkedListNode } from "./insert-a-node-at-a-specific-position-in-a-linked-list";
+import { SinglyLinkedListNode } from './insert-a-node-at-a-specific-position-in-a-linked-list'
 
-export function reversePrint(head: SinglyLinkedListNode | null): void {
-  if (head === null) return;
+export function reversePrint(head: SinglyLinkedListNode | undefined): void {
+  if (head === undefined) return
 
-  reversePrint(head.next);
+  reversePrint(head.next)
 
-  console.log(head.data);
+  console.log(head.data)
 }

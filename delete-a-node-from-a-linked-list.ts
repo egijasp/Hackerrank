@@ -1,24 +1,28 @@
-import { SinglyLinkedListNode } from "./insert-a-node-at-a-specific-position-in-a-linked-list";
+import { SinglyLinkedListNode } from './insert-a-node-at-a-specific-position-in-a-linked-list'
 
 export function deleteNode(
-  head: SinglyLinkedListNode | null,
+  head: SinglyLinkedListNode | undefined,
   position: number
-): SinglyLinkedListNode {
+): SinglyLinkedListNode | undefined {
   if (position === 0) {
-    return head?.next!;
+    return head?.next
   }
 
-  let curr: SinglyLinkedListNode | null = head;
+  let curr: SinglyLinkedListNode | undefined = head
 
   for (let i = 0; i < position - 1; i++) {
-    curr = curr!.next;
+    curr = curr?.next
   }
 
-  let next = curr?.next!.next;
+  if (curr === undefined) {
+    return head
+  }
 
-  curr!.next = next!;
+  const next = curr.next?.next
 
-  curr = head;
+  curr.next = next
 
-  return head!;
+  curr = head
+
+  return head
 }

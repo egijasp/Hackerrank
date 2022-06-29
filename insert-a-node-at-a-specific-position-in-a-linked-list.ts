@@ -1,30 +1,38 @@
 export interface SinglyLinkedListNode {
-  data: number;
-  next: SinglyLinkedListNode | null;
+  data: number
+  next?: SinglyLinkedListNode
 }
 
 export function insertNodeAtPosition(
-  head: SinglyLinkedListNode | null,
+  head: SinglyLinkedListNode | undefined,
   data: number,
   position: number
 ): SinglyLinkedListNode {
-  const node: SinglyLinkedListNode = { data, next: null };
+  const node: SinglyLinkedListNode = { data }
 
   if (position === 0) {
-    node.next = head;
-    return node;
+    node.next = head
+    return node
   }
 
-  let current: SinglyLinkedListNode | null = head;
+  if (head === undefined) {
+    return node
+  }
+
+  let current: SinglyLinkedListNode | undefined = head
 
   while (position > 1) {
-    current = current!.next;
-    position--;
+    current = current?.next
+    position--
   }
 
-  node.next = current!.next;
+  if (current === undefined) {
+    return head
+  }
 
-  current!.next = node;
+  node.next = current.next
 
-  return head!;
+  current.next = node
+
+  return head
 }
