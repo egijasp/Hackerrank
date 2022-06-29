@@ -12,8 +12,8 @@ jobs:
           node-version: 17
           cache: npm
       - name: Dependencies
-        run: npm ci
+        run: yarn install --immutable --immutable-cache --check-cache
       - name: Lint
-        run: npm run lint
+        run: yarn lint
       - name: Test
-        run: npx jest
+        run: yarn test
