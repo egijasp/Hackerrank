@@ -28,7 +28,7 @@ export function queensAttack(
       }
     }
     // same column
-    if (obs[1] === cQ) {
+    else if (obs[1] === cQ) {
       if (obs[0] > rQ) {
         moves['up'] = Math.min(moves['up'], obs[0] - rQ - 1)
       } else {
@@ -36,17 +36,14 @@ export function queensAttack(
       }
     }
     // same diagonal
-    if (Math.abs(rQ - obs[0]) === Math.abs(cQ - obs[1])) {
+    else if (Math.abs(rQ - obs[0]) === Math.abs(cQ - obs[1])) {
       if (obs[0] < rQ && obs[1] < cQ) {
         moves['downLeft'] = Math.min(moves['downLeft'], cQ - obs[1] - 1)
-      }
-      if (obs[0] > rQ && obs[1] < cQ) {
+      } else if (obs[0] > rQ && obs[1] < cQ) {
         moves['upLeft'] = Math.min(moves['upLeft'], cQ - obs[1] - 1)
-      }
-      if (obs[0] > rQ && obs[1] > cQ) {
+      } else if (obs[0] > rQ && obs[1] > cQ) {
         moves['upRight'] = Math.min(moves['upRight'], obs[1] - cQ - 1)
-      }
-      if (obs[0] < rQ && obs[1] > cQ) {
+      } else {
         moves['downRight'] = Math.min(moves['downRight'], obs[1] - cQ - 1)
       }
     }
