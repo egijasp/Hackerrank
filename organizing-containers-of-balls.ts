@@ -1,6 +1,4 @@
 export function organizingContainers(container: number[][]): string {
-  if (container.length === 1 && container[0].length > 1) return 'Impossible'
-
   const row = new Array(container.length).fill(0)
   const column = new Array(container.length).fill(0)
   for (let i = 0; i < container.length; i++) {

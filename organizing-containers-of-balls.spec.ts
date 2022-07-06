@@ -6,11 +6,6 @@ describe('organizingContainers', () => {
 
     expect(result).toEqual('Possible')
   })
-  it('one container with two different balls', () => {
-    const result = organizingContainers([[1, 1]])
-
-    expect(result).toEqual('Impossible')
-  })
   it('two containers with one ball each container', () => {
     const result = organizingContainers([
       [1, 0],
